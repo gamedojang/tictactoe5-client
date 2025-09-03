@@ -50,6 +50,8 @@ public class GameManager : Singleton<GameManager>
         if (scene.name == "Game")
         {
             // Block 초기화
+            var blockController = FindFirstObjectByType<BlockController>();
+            blockController.InitBlocks();
         }
     }
 }

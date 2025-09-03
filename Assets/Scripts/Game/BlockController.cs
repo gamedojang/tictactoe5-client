@@ -23,8 +23,10 @@ public class BlockController : MonoBehaviour
     }
     
     // 2. 특정 Block에 마커 표시
-    public void PlaceMaker(Block.MarkerType markerType, int blockIndex)
+    public void PlaceMaker(Block.MarkerType markerType, int row, int col)
     {
+        // row, col >> index 변환
+        var blockIndex = row * Constants.BlockColumnCount + col;
         blocks[blockIndex].SetMarker(markerType);
     }
     

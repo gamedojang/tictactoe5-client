@@ -18,7 +18,7 @@ public class PlayerState : BasePlayerState
         // TODO: Game 씬에 턴 표시 UI 구현 후 진행 예정
         
         // 2. Block Controller에게 해야 할 일을 전달
-        gameLogic.BlockController.OnBlockClickedDelegate = (row, col) =>
+        gameLogic.blockController.OnBlockClickedDelegate = (row, col) =>
         {
             // Block이 터치 될 때까지 기다렸다가 터치 되면 처리할 일
             HandleMove(gameLogic, row, col);
@@ -27,7 +27,7 @@ public class PlayerState : BasePlayerState
 
     public override void OnExit(GameLogic gameLogic)
     {
-        gameLogic.BlockController.OnBlockClickedDelegate = null;
+        gameLogic.blockController.OnBlockClickedDelegate = null;
     }
 
     public override void HandleMove(GameLogic gameLogic, int row, int col)

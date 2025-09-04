@@ -27,7 +27,7 @@ public class GameLogic
         {
             case Constants.GameType.SinglePlay:
                 firstPlayerState = new PlayerState(true);
-                secondPlayerState = new PlayerState(false);
+                secondPlayerState = new AIState();
                 // 게임 시작
                 SetState(firstPlayerState);
                 break;

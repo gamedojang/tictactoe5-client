@@ -1,4 +1,3 @@
-using Unity.Mathematics.Geometry;
 using UnityEngine;
 
 public static class TicTacToeAI
@@ -74,7 +73,7 @@ public static class TicTacToeAI
                         board[row, col] = Constants.PlayerType.PlayerA;
                         var score = DoMiniMax(board, depth + 1, true);
                         board[row, col] = Constants.PlayerType.None;
-                        bestScore = Mathf.Max(score, bestScore);
+                        bestScore = Mathf.Min(score, bestScore);
                     }
                 }
             }

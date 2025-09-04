@@ -1510,6 +1510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2ab8f068761f84aa80632066436cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerATurnPanel: {fileID: 847566134}
+  playerBTurnPanel: {fileID: 1548885628}
 --- !u!4 &1200797834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8895548316754775788, guid: 25c9b777d2e19cc41ac72b3675c0f174, type: 3}

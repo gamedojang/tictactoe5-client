@@ -79,10 +79,6 @@ public class GameManager : Singleton<GameManager>
             }
             
             // GameLogic 생성
-            if (_gameLogic != null)
-            {
-                // TODO: 기존 게임 로직을 소멸
-            }
             _gameLogic = new GameLogic(blockController, _gameType);
         }
     }

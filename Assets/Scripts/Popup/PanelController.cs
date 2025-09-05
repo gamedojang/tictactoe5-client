@@ -46,4 +46,9 @@ public class PanelController : MonoBehaviour
                 Destroy(gameObject);
             });
     }
+
+    protected void Shake()
+    {
+        panelRectTransform.DOShakeAnchorPos(0.3f);
+    }
 }

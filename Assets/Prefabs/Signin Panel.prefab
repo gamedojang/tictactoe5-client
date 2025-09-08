@@ -1100,7 +1100,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3473899483767679231}
         m_TargetAssemblyTypeName: SigninPanelController, Assembly-CSharp
-        m_MethodName: OnClickConfirmButton
+        m_MethodName: OnClickSignupButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

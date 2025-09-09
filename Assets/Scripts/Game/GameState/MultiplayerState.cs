@@ -24,7 +24,6 @@ public class MultiplayerState : BasePlayerState
             {
                 HandleMove(gameLogic, row, col);                
             });
-
         };
     }
 

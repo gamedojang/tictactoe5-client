@@ -4,7 +4,7 @@ public static class Constants
     public const string ServerURL = "http://localhost:3000";
     public const string SocketServerURL = "ws://localhost:3000";
 
-    public enum MultiplayContollerState
+    public enum MultiplayControllerState
     {
         CreateRoom,     // 방 생성
         JoinRoom,       // 생성된 방에 참여

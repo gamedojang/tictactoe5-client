@@ -20,10 +20,11 @@ public class MultiplayerState : BasePlayerState
         {
             var row = blockIndex / Constants.BlockColumnCount;
             var col = blockIndex % Constants.BlockColumnCount;
-            UnityThread.executeInUpdate(() =>
-            {
-                HandleMove(gameLogic, row, col);                
-            });
+            // UnityThread.executeInUpdate(() =>
+            // {
+            //     HandleMove(gameLogic, row, col);                
+            // });
+            HandleMove(gameLogic, row, col);
         };
     }
 

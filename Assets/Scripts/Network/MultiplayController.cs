@@ -48,51 +48,70 @@ public class MultiplayController : IDisposable
     private void CreateRoom(SocketIOResponse response)
     {
         var data = response.GetValue<RoomData>();
-        _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.CreateRoom, 
-            data.roomId);
+
+        UnityThread.executeInUpdate(() =>
+        {
+            _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.CreateRoom,
+                data.roomId);
+        });
     }
     
     private void JoinRoom(SocketIOResponse response)
     {
         var data = response.GetValue<RoomData>();
-        _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.JoinRoom,
-            data.roomId);
+        UnityThread.executeInUpdate(() =>
+        {
+            _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.JoinRoom,
+                data.roomId);
+        });
     }
     
     private void StartGame(SocketIOResponse response)
     {
         var data = response.GetValue<RoomData>();
-        _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.StartGame,
-            data.roomId);
+        UnityThread.executeInUpdate(() =>
+        {
+            _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.StartGame,
+                data.roomId);
+        });
     }
     
     private void ExitRoom(SocketIOResponse response)
     {
-        _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.ExitRoom, null);
+        UnityThread.executeInUpdate(() =>
+        {
+            _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.ExitRoom, null);
+        });
     }
     
     private void EndGame(SocketIOResponse response)
     {
-        _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.EndGame, null);
+        UnityThread.executeInUpdate(() =>
+        {
+            _onMultiplayStateChanged?.Invoke(Constants.MultiplayControllerState.EndGame, null);
+        });
     }
     
     private void DoOpponent(SocketIOResponse response)
     {
         var data = response.GetValue<BlockData>();
-        onBlockDataChanged?.Invoke(data.blockIndex);
+        UnityThread.executeInUpdate(() =>
+        {
+            onBlockDataChanged?.Invoke(data.blockIndex);
+        });
     }
 
     #region  Client => Server
     // Room을 나올 때 호출하는 메서드, Client -> Server
     public void LeaveRoom(string roomId)
     {
-        _socket.Emit("leaveRoom", roomId);
+        _socket.Emit("leaveRoom", new { roomId });
     }
 
     // 플레이어가 Marker를 두면 호출하는 메서드, Client -> Server
-    public void DoPlayer(string roomId, int position)
+    public void DoPlayer(string roomId, int blockIndex)
     {
-        _socket.Emit("doPlayer", roomId, position);
+        _socket.Emit("doPlayer", new { roomId, blockIndex });
     }
 
     #endregion
